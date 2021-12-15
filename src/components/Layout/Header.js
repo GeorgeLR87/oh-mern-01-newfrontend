@@ -23,7 +23,7 @@ export default function Header() {
                 Guitarras
               </Link>
               <Link
-                to="/tiendas"
+                to="/stores"
                 className="text-base font-medium text-white hover:text-indigo-50"
               >
                 Tiendas

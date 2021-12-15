@@ -57,6 +57,13 @@ const StoreState = (props) => {
 			type: "GET_STORE",
 			payload: selectedStore
 		})
+	}
+
+	const createStore = async (form) => {
+
+		const res = await axiosClient.post("stores/create", form)
+
+		console.log(res)
 
 	}
 
@@ -71,7 +78,8 @@ const StoreState = (props) => {
 				singleStore: globalState.singleStore,
 				changeText,
 				getStores,
-				getStore
+				getStore,
+				createStore
 
 			}}
 		>
