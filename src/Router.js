@@ -15,6 +15,7 @@ import Stores from "./components/Stores";
 import SingleStore from "./components/Stores/SingleStore"
 
 import GuitarState from "./context/Guitar/GuitarState";
+import CreateGuitar from './components/Guitars/Create'
 import StoreState from "./context/Store/storeState";
 
 // 2. FUNCIÓN
@@ -36,6 +37,9 @@ const Router = () => {
                 <Route path="guitarras" element={<Guitars />} />
 								{/* localhost:3000/guitarras/:id */}
 							  <Route path="guitarras/:id" element={<Single />} />
+                {/* localhost:3000/guitarras/crear */}
+							<Route path="guitarras/crear" element={<CreateGuitar />} />
+
 
 				        {/* localhost:3000/stores */}
                 <Route path="stores" element={<Stores />} />
