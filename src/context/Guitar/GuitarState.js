@@ -91,8 +91,6 @@ const GuitarState = (props) => {
 			type: "UPDATE_GUITAR",
 			payload: updatedGuitar
 		})
-
-
 	}
 
 

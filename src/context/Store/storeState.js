@@ -64,7 +64,18 @@ const StoreState = (props) => {
 		const res = await axiosClient.post("stores/create", form)
 
 		console.log(res)
+	}
 
+	const updateStore = async (form, idStore) => {
+
+		const res = await axiosClient.put(`stores/edit/${idStore}`, form)
+
+		const updateStore = res.data.data
+
+		dispatch({
+			type: "UPDATE_STORE",
+			payload: updateStore
+		})
 	}
 
 
@@ -79,7 +90,8 @@ const StoreState = (props) => {
 				changeText,
 				getStores,
 				getStore,
-				createStore
+				createStore,
+				updateStore
 
 			}}
 		>

@@ -10,18 +10,23 @@ import Layout from "./components/Layout";
 
 import Guitars from "./components/Guitars";
 import Single from './components/Guitars/Single'
-
-import Stores from "./components/Stores";
-import SingleStore from "./components/Stores/SingleStore"
-
 import GuitarState from "./context/Guitar/GuitarState";
 import CreateGuitar from './components/Guitars/Create'
 import EditGuitar from './components/Guitars/Single/Edit'
 
-
+import Stores from "./components/Stores";
+import SingleStore from "./components/Stores/SingleStore"
 import StoreState from "./context/Store/storeState";
 import CreateStore from "./components/Stores/CreateStores"
+import EditStore from './components/Stores/SingleStore/EditStore'
+
 import UserState from './context/User/UserState'
+
+import Auth from './routes/Auth'
+import Profile from "./components/User/Profile";
+import Private from "./routes/Private";
+
+
 
 
 // 2. FUNCIÓN
@@ -36,10 +41,15 @@ const Router = () => {
               <Route path="/" element={<Layout />}>
                 {/* localhost:3000/ */}
                 <Route index element={<Home />} />
+
+                {/* Rutas de autenticacion */}
+                {/* eVITAN QUE UN USUARIO LOGGEADO PUEDA ENTRAR A REGISTER.JS Y LOGIN.JS */}
+
                 {/* localhost:3000/registro */}
-                <Route path="registro" element={<Register />} />
+                <Route path="registro" element={<Auth component={Register} />} />
                 {/* localhost:3000/iniciar-sesion */}
-                <Route path="iniciar-sesion" element={<Login />} />
+
+                <Route path="iniciar-sesion" element={<Auth component={Login} />} />
                 {/* localhost:3000/guitarras */}
                 <Route path="guitarras" element={<Guitars />} />
 
@@ -48,7 +58,6 @@ const Router = () => {
 							  <Route path="guitarras/:id" element={<Single />} />
                 {/* localhost:3000/guitarras/crear */}
 							  <Route path="guitarras/crear" element={<CreateGuitar />} />
-
                 {/* localhost:3000/guitarras/:id/editar */}
 							  <Route path="guitarras/:id/editar" element={<EditGuitar />} />
 
@@ -59,6 +68,11 @@ const Router = () => {
 							  <Route path="stores/:id" element={<SingleStore />} />
                 {/* localhost:3000/guitarras/crear */}
 							  <Route path="stores/crear" element={<CreateStore />} />
+                {/* localhost:3000/guitarras/:id/editar */}
+							  <Route path="stores/:id/editarStores" element={<EditStore />} />
+
+                {/* localhost:3000/profile */}
+							  <Route path="profile" element={<Private component={Profile} />} />
 
               </Route>
             </Routes>
