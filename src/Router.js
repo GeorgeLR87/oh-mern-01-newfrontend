@@ -16,14 +16,19 @@ import SingleStore from "./components/Stores/SingleStore"
 
 import GuitarState from "./context/Guitar/GuitarState";
 import CreateGuitar from './components/Guitars/Create'
+import EditGuitar from './components/Guitars/Single/Edit'
+
 
 import StoreState from "./context/Store/storeState";
 import CreateStore from "./components/Stores/CreateStores"
+import UserState from './context/User/UserState'
+
 
 // 2. FUNCIÓN
 const Router = () => {
   return (
     <>
+    <UserState>
       <GuitarState>
         <StoreState>
           <BrowserRouter>
@@ -37,10 +42,15 @@ const Router = () => {
                 <Route path="iniciar-sesion" element={<Login />} />
                 {/* localhost:3000/guitarras */}
                 <Route path="guitarras" element={<Guitars />} />
+
+
 								{/* localhost:3000/guitarras/:id */}
 							  <Route path="guitarras/:id" element={<Single />} />
                 {/* localhost:3000/guitarras/crear */}
 							  <Route path="guitarras/crear" element={<CreateGuitar />} />
+
+                {/* localhost:3000/guitarras/:id/editar */}
+							  <Route path="guitarras/:id/editar" element={<EditGuitar />} />
 
 
 				        {/* localhost:3000/stores */}
@@ -55,6 +65,7 @@ const Router = () => {
           </BrowserRouter>
         </StoreState>
       </GuitarState>
+      </UserState>
     </>
   );
 };
